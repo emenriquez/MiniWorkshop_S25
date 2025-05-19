@@ -1,6 +1,6 @@
-# MiniWorkshop S25
+# STARTER-AI Mini-workshop - Summer 2025
 
-This repository contains materials for the MiniWorkshop S25, focusing on neural networks, sentiment classification, and fine-tuning transformer models using Python and Jupyter Notebooks.
+This repository contains materials for the STARTER-AI hands-on mini workshop, focusing on neural networks, sentiment classification, and fine-tuning transformer models using Python and Jupyter Notebooks.
 
 ## Project Structure
 
