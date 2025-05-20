@@ -10,6 +10,7 @@ This repository contains materials for the STARTER-AI hands-on mini workshop, fo
 - `3a_FineTune_DistilBERT.ipynb`: Fine-tuning the DistilBERT model for NLP tasks.
 - `3b_Capstone_FineTune_Emotion.ipynb`: Capstone project on fine-tuning for emotion detection.
 - `requirements.txt`: Python dependencies for running the notebooks.
+- `colab/`: Google Colab-compatible versions of all workshop notebooks.
 
 ## Getting Started
 
