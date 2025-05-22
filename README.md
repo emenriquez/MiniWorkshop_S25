@@ -22,7 +22,12 @@ This repository contains materials for the STARTER-AI hands-on mini workshop, fo
 2. **Set up a virtual environment (recommended):**
    ```bash
    python3 -m venv .venv
+   # On macOS/Linux:
    source .venv/bin/activate
+   # On Windows (Command Prompt):
+   .venv\Scripts\activate.bat
+   # On Windows (PowerShell):
+   .venv\Scripts\Activate.ps1
    ```
 3. **Install dependencies:**
    ```bash
