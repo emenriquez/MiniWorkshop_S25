@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPU Notebooks, HPC & Copilot — Resources</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f0f1a;
+            --bg-card: rgba(255, 255, 255, 0.04);
+            --bg-card-hover: rgba(255, 255, 255, 0.08);
+            --border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f0f0f5;
+            --text-secondary: #9595b0;
+            --accent-colab: #F9AB00;
+            --accent-hpc: #00C9A7;
+            --accent-copilot: #7C5CFC;
+            --accent-notebooks: #FF6B6B;
+            --glow-colab: rgba(249, 171, 0, 0.15);
+            --glow-hpc: rgba(0, 201, 167, 0.15);
+            --glow-copilot: rgba(124, 92, 252, 0.15);
+            --glow-notebooks: rgba(255, 107, 107, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 20%, rgba(124, 92, 252, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 80%, rgba(0, 201, 167, 0.06) 0%, transparent 50%),
+                        radial-gradient(ellipse at 50% 50%, rgba(249, 171, 0, 0.04) 0%, transparent 50%);
+            animation: bgFloat 20s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes bgFloat {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-3%, 3%) rotate(3deg); }
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-colab), var(--accent-copilot), var(--accent-hpc));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 16px 16px 0 0;
+            opacity: 0.8;
+        }
+
+        .card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .card--colab::before { background: var(--accent-colab); }
+        .card--colab:hover { box-shadow: 0 8px 32px var(--glow-colab); }
+
+        .card--hpc::before { background: var(--accent-hpc); }
+        .card--hpc:hover { box-shadow: 0 8px 32px var(--glow-hpc); }
+
+        .card--copilot::before { background: var(--accent-copilot); }
+        .card--copilot:hover { box-shadow: 0 8px 32px var(--glow-copilot); }
+
+        .card--notebooks::before { background: var(--accent-notebooks); }
+        .card--notebooks:hover { box-shadow: 0 8px 32px var(--glow-notebooks); }
+
+        .card__icon {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .card__title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .card__desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .card__link {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            opacity: 0.5;
+            word-break: break-all;
+        }
+
+        .card--colab .card__link { color: var(--accent-colab); }
+        .card--hpc .card__link { color: var(--accent-hpc); }
+        .card--copilot .card__link { color: var(--accent-copilot); }
+        .card--notebooks .card__link { color: var(--accent-notebooks); }
+
+        .footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        @media (max-width: 640px) {
+            .cards { grid-template-columns: 1fr; }
+            h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GPU Notebooks, HPC &amp; Copilot</h1>
+        <p class="subtitle">Resources &amp; links from today's session</p>
+
+        <div class="cards">
+            <a href="https://colab.research.google.com/drive/1_c0-9HowJQRTALRPAOVmNCGYWBcACBwy?usp=sharing" target="_blank" rel="noopener" class="card card--colab">
+                <span class="card__icon">🚀</span>
+                <div class="card__title">GPU Notebook Demo (Colab)</div>
+                <div class="card__desc">Open today's demo notebook — GPU speed tests, fractal art, image AI, and Gemini coding. Free GPU, no setup needed.</div>
+                <div class="card__link">Open in Google Colab →</div>
+            </a>
+
+            <a href="https://education.github.com" target="_blank" rel="noopener" class="card card--copilot">
+                <span class="card__icon">🤖</span>
+                <div class="card__title">GitHub Copilot (Free for Students)</div>
+                <div class="card__desc">AI pair-programmer for VS Code. Sign up with your .edu email through GitHub Education to get it free.</div>
+                <div class="card__link">education.github.com</div>
+            </a>
+
+            <a href="https://hpc.utrgv.edu" target="_blank" rel="noopener" class="card card--hpc">
+                <span class="card__icon">🖥️</span>
+                <div class="card__title">UTRGV HPC Cluster</div>
+                <div class="card__desc">Multi-GPU compute cluster free for UTRGV students and researchers. Request access to start running real workloads.</div>
+                <div class="card__link">hpc.utrgv.edu</div>
+            </a>
+
+            <a href="https://github.com/emenriquez/MiniWorkshop_S25" target="_blank" rel="noopener" class="card card--notebooks">
+                <span class="card__icon">📓</span>
+                <div class="card__title">Workshop Notebooks</div>
+                <div class="card__desc">Today's GPU demo notebook — speed tests, fractals, image AI &amp; text generation. Plus full workshop notebooks to explore on your own.</div>
+                <div class="card__link">github.com/emenriquez/MiniWorkshop_S25</div>
+            </a>
+        </div>
+
+        <div class="footer">
+            Supported by the National Science Foundation — NSF IIS-2334389<br>
+            <a href="https://huggingface.co/docs/transformers" target="_blank" rel="noopener">HuggingFace Transformers</a> · 
+            <a href="https://pytorch.org/tutorials/" target="_blank" rel="noopener">PyTorch Tutorials</a> · 
+            <a href="https://huggingface.co/datasets" target="_blank" rel="noopener">HF Datasets Hub</a>
+        </div>
+    </div>
+</body>
+</html>
